@@ -14,7 +14,7 @@ A flutter movie app made with [Mobx](https://github.com/mobxjs/mobx.dart) and [F
 
 ## Video
 
-A short video of the app can be found by clicking [here](https://drive.google.com/file/d/1p_q6naS713tjJilBmrtGu9C3vZ1HJS-9/view?usp=sharing)
+A short video of the app can be found by clicking [here](https://youtu.be/MSn3pyJYztk)
 
 ## Screenshots
 
