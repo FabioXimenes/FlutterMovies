@@ -33,3 +33,6 @@ Tv Details Page part 3 - trailers               |  Tv Details Page part 4 - simi
 Search Page part 3               |  Person Page               | Genre Page part 1               | Genre Page part 2
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss10.png?raw=true)|![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss15.png?raw=true)|![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss13.png?raw=true)|![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss14.png?raw=true)|
+
+## IMPORTANT!
+Add your [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction) **API KEY** at _api_key.dart_ located in _lib/app/shared/_ folder.
