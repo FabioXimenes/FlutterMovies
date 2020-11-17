@@ -40,9 +40,8 @@ Search Page part 3               |  Person Page               | Genre Page part 
 - Open it in Android Studio or Visual Studio Code or any other IDE that supports Flutter
 - Run flutter doctor just to make sure everything is Ok
 - Run pub get to install all dependencies
-- You'll notice some errors related to missing class api_key.dart.
 - Go to https://www.themoviedb.org/ and grab an API Key (register if necessary)
-- Now go to api_key.dart and paste your key. Should look like: const String API_KEY = 'hihzaihfihfihfihizhfihef';
+- Now go to api_key.dart then paste your key. Should look like: const String API_KEY = '<YOUR_API_KEY>';
 - Run the project and voila
 
 
