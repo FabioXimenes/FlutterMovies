@@ -34,5 +34,17 @@ Search Page part 3               |  Person Page               | Genre Page part 
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss10.png?raw=true)|![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss15.png?raw=true)|![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss13.png?raw=true)|![](https://github.com/FabioXimenes/flutter_movie_app/blob/master/screenshots/ss14.png?raw=true)|
 
+## Get started
+
+- Clone this project
+- Open it in Android Studio or Visual Studio Code or any other IDE that supports Flutter
+- Run flutter doctor just to make sure everything is Ok
+- Run pub get to install all dependencies
+- You'll notice some errors related to missing class api_key.dart.
+- Go to https://www.themoviedb.org/ and grab an API Key (register if necessary)
+- Now go to api_key.dart and paste your key. Should look like: const String API_KEY = 'hihzaihfihfihfihizhfihef';
+- Run the project and voila
+
+
 ## IMPORTANT!
 Add your [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction) **API KEY** at _api_key.dart_ located in _lib/app/shared/_ folder.
