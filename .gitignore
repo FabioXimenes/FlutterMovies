@@ -1,3 +1,6 @@
+# ENV
+.env
+
 # Test folder
 test/
 
