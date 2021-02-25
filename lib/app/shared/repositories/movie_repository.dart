@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_movie_app/app/shared/api_key.dart';
 import 'package:flutter_movie_app/app/shared/constants.dart';
 import 'package:flutter_movie_app/app/shared/http/custom_dio.dart';
 import 'package:flutter_movie_app/app/shared/models/credits_model.dart';
@@ -13,6 +12,7 @@ import 'package:flutter_movie_app/app/shared/models/video_response_model.dart';
 import 'package:flutter_movie_app/app/shared/models/generic_response_model.dart';
 import 'package:flutter_movie_app/app/shared/models/movie_response_model.dart';
 import 'package:flutter_movie_app/app/shared/models/genre_response_model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class MovieRepository {
   final CustomDio _client;
@@ -23,7 +23,7 @@ class MovieRepository {
     String url = ApiUrls.topRatedMovies;
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,   // YOUR API KEY
+      'api_key': env['API_KEY'],   // YOUR API KEY
       'language': 'en-US',
       'page': 1
     };
@@ -40,7 +40,7 @@ class MovieRepository {
     String url = ApiUrls.nowPlaying;
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
       'page': 1
     };
@@ -57,7 +57,7 @@ class MovieRepository {
     String url = ApiUrls.trendingMovies(timeWindow);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
     };
 
     try {
@@ -72,7 +72,7 @@ class MovieRepository {
     String url = ApiUrls.trendingTv(timeWindow);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
     };
 
     try {
@@ -87,7 +87,7 @@ class MovieRepository {
     String url = ApiUrls.movieDetails(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -103,7 +103,7 @@ class MovieRepository {
     String url = ApiUrls.movieCredits(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
     };
 
     try {
@@ -118,7 +118,7 @@ class MovieRepository {
     String url = ApiUrls.similarMovies(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
       'page': 1
     };
@@ -135,7 +135,7 @@ class MovieRepository {
     String url = ApiUrls.personDetails(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -151,7 +151,7 @@ class MovieRepository {
     String url = ApiUrls.personMovieCredits(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -167,7 +167,7 @@ class MovieRepository {
     String url = ApiUrls.tvDetails(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -183,7 +183,7 @@ class MovieRepository {
     String url = ApiUrls.tvCredits(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -199,7 +199,7 @@ class MovieRepository {
     String url = ApiUrls.tvSeasonDetails(id, season);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -215,7 +215,7 @@ class MovieRepository {
     String url = ApiUrls.similarTv(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -231,7 +231,7 @@ class MovieRepository {
     String url = ApiUrls.tvVideos(id);
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -247,7 +247,7 @@ class MovieRepository {
     String url = ApiUrls.search;
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
       'query': query,
       'page': 1,
@@ -266,7 +266,7 @@ class MovieRepository {
     String url = ApiUrls.movieGenres;
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -282,7 +282,7 @@ class MovieRepository {
     String url = ApiUrls.tvGenres;
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
     };
 
@@ -298,7 +298,7 @@ class MovieRepository {
     String url = ApiUrls.discoverMovies;
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
       'page': 1,
       'include_adult': false,
@@ -317,7 +317,7 @@ class MovieRepository {
     String url = ApiUrls.discoverTv;
 
     Map<String, dynamic> params = {
-      'api_key': API_KEY,
+      'api_key': env['API_KEY'],
       'language': 'en-US',
       'page': 1,
       'include_adult': false,
