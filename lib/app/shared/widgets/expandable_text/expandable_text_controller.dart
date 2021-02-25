@@ -3,12 +3,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 part 'expandable_text_controller.g.dart';
 
-@Injectable()
+@Injectable(singleton: false)
 class ExpandableTextController = _ExpandableTextControllerBase
     with _$ExpandableTextController;
 
 abstract class _ExpandableTextControllerBase with Store {
-
   @observable
   bool isExpanded = false;
 

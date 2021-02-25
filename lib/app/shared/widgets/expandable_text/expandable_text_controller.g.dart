@@ -8,7 +8,7 @@ part of 'expandable_text_controller.dart';
 
 final $ExpandableTextController = BindInject(
   (i) => ExpandableTextController(),
-  singleton: true,
+  singleton: false,
   lazy: true,
 );
 
