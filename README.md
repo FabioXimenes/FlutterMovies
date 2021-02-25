@@ -41,9 +41,9 @@ Search Page part 3               |  Person Page               | Genre Page part 
 - Run flutter doctor just to make sure everything is Ok
 - Run pub get to install all dependencies
 - Go to https://www.themoviedb.org/ and grab an API Key (register if necessary)
-- Now go to api_key.dart then paste your key. Should look like: const String API_KEY = '<YOUR_API_KEY>';
+- Create a .env file at the project root and add the variable API_KEY with your the TMDB key (API_KEY=<YOUR_API_KEY>)
 - Run the project and voila
 
 
 ## IMPORTANT!
-Add your [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction) **API KEY** at _api_key.dart_ located in _lib/app/shared/_ folder.
+Add your [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction) **API KEY** to a .env file at the project root.
