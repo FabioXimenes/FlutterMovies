@@ -114,6 +114,22 @@ class MovieRepository {
     }
   }
 
+  Future<VideoResponseModel> getMovieVideos(int id) async {
+    String url = ApiUrls.movieVideos(id);
+
+    Map<String, dynamic> params = {
+      'api_key': env['API_KEY'],
+      'language': 'en-US',
+    };
+
+    try {
+      Response response = await _client.get(url, queryParameters: params);
+      return VideoResponseModel.fromJson(response.data);
+    } on DioError catch (e) {
+      throw (e.message);
+    }
+  }
+
   Future<MovieResponseModel> getSimilarMovies(int id) async {
     String url = ApiUrls.similarMovies(id);
 
