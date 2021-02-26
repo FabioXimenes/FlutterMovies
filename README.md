@@ -1,8 +1,10 @@
 # flutter_movie_app
 A flutter movie app made with [Mobx](https://github.com/mobxjs/mobx.dart) and [Flutter Modular](https://github.com/Flutterando/modular) using [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction).
 
+#### Now you can watch trailers (26/02/2021)!!
 
 ## Dependencies
+* [youtube_plyr_iframe](https://pub.dev/packages/youtube_plyr_iframe)
 * [smooth_star_rating](https://pub.dev/packages/smooth_star_rating)
 * [dio](https://pub.dev/packages/dio)
 * [mobx](https://pub.dev/packages/mobx)
