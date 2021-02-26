@@ -40,10 +40,10 @@ class AppRoutes {
   static const tvDetails = '/tv_details';
   static const person = '/person';
   static const genre = '/genre';
-  static const video = '/video';
+  static const videoPlayer = '/video_player';
   static Function movieId = (int id) => '/movie_details/$id';
   static Function tvId = (int id) => '/tv_details/$id';
   static Function personId = (int id) => '/person/$id';
   static Function genreRoute = (int id, String name) => '/genre/$id/$name';
-  static Function videoKey = (String key) => '/video/$key';
+  static Function videoPlayerId = (String id) => '/video_player/$id';
 }

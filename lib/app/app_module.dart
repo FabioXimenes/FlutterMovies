@@ -1,6 +1,7 @@
 import 'package:flutter_movie_app/app/modules/genre/genre_module.dart';
 import 'package:flutter_movie_app/app/modules/movie_details/movie_details_module.dart';
 import 'package:flutter_movie_app/app/modules/tv_details/tv_details_module.dart';
+import 'package:flutter_movie_app/app/modules/video_player/video_player_module.dart';
 
 import 'shared/widgets/expandable_text/expandable_text_controller.dart';
 import 'package:flutter_movie_app/app/modules/home/home_controller.dart';
@@ -35,6 +36,7 @@ class AppModule extends MainModule {
         ModularRouter(AppRoutes.tvDetails, module: TvDetailsModule()),
         ModularRouter(AppRoutes.person, module: PersonModule()),
         ModularRouter(AppRoutes.genre, module: GenreModule()),
+        ModularRouter(AppRoutes.videoPlayer, module: VideoPlayerModule())
       ];
 
   @override

@@ -39,11 +39,9 @@ class TrailerCardWidget extends StatelessWidget {
                 height: 10,
               ),
               WatchButtonWidget(
-                onTap: (){
-                  // TODO - Show youtube trailer on app
-                  print('TODO - Show youtube trailer on app');
-                }
-                // videoKey: video.key,
+                onTap: () => Modular.to.pushNamed(
+                  AppRoutes.videoPlayerId(video.key),
+                ),
               )
             ],
           ))
