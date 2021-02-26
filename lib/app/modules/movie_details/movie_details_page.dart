@@ -11,8 +11,7 @@ import 'movie_details_controller.dart';
 
 class MovieDetailsPage extends StatefulWidget {
   final String movieId;
-  const MovieDetailsPage({Key key, this.movieId})
-      : super(key: key);
+  const MovieDetailsPage({Key key, this.movieId}) : super(key: key);
 
   @override
   _MovieDetailsPageState createState() => _MovieDetailsPageState();
@@ -25,6 +24,7 @@ class _MovieDetailsPageState
   @override
   void initState() {
     controller.getMovieDetails(int.parse(widget.movieId));
+    controller.getMovieTrailer(int.parse(widget.movieId));
     controller.getMovieCredits(int.parse(widget.movieId));
     controller.getSimilarMovies(int.parse(widget.movieId));
     super.initState();
@@ -43,33 +43,78 @@ class _MovieDetailsPageState
               expandedHeight: _size.height * 0.30,
               flexibleSpace: FlexibleSpaceBar(
                 background: controller.hasDetails
-                    ? controller.details.backdrop_path == null
-                        ? Container(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.broken_image,
-                                  color: Colors.grey,
-                                  size: 50,
-                                ),
-                                Text(
-                                  'Image not found',
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 16),
+                    ? Stack(
+                        children: [
+                          controller.details.backdrop_path == null
+                              ? Container(
+                                  width: _size.width,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.broken_image,
+                                        color: Colors.grey,
+                                        size: 50,
+                                      ),
+                                      Text(
+                                        'Image not found',
+                                        style: TextStyle(
+                                            color: Colors.grey, fontSize: 16),
+                                      )
+                                    ],
+                                  ),
                                 )
-                              ],
-                            ),
-                          )
-                        : Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: NetworkImage(ApiUrls.image(
-                                    controller.details.backdrop_path)),
-                              ),
-                            ),
-                          )
+                              : Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                        ApiUrls.image(
+                                            controller.details.backdrop_path),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                          controller.hasTrailer
+                              ? Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: InkWell(
+                                    onTap: () => Modular.to.pushNamed(
+                                      AppRoutes.videoPlayerId(
+                                        controller.trailer.key,
+                                      ),
+                                    ),
+                                    child: Container(
+                                      margin: EdgeInsets.only(
+                                        bottom: 10,
+                                        right: 10,
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                        vertical: 5,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).accentColor,
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Text(
+                                        'Watch trailer',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle2
+                                            .copyWith(
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : SizedBox()
+                        ],
+                      )
                     : Center(child: CircularProgressIndicator()),
               ),
             );
@@ -125,7 +170,7 @@ class _MovieDetailsPageState
                         )
                       ],
                     )
-                  : Center(),
+                  : SizedBox(),
             ),
           );
         }),
@@ -134,9 +179,7 @@ class _MovieDetailsPageState
             return SliverToBoxAdapter(
               child: controller.hasDetails
                   ? OverviewSectionWidget(overview: controller.details.overview)
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    ),
+                  : SizedBox(),
             );
           },
         ),
@@ -146,9 +189,7 @@ class _MovieDetailsPageState
             return SliverToBoxAdapter(
               child: controller.hasDetails
                   ? GenresSectionWidget(genres: controller.details.genres)
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    ),
+                  : SizedBox(),
             );
           },
         ),
@@ -160,9 +201,7 @@ class _MovieDetailsPageState
                     ? CastSectionWidget(
                         cast: controller.credits.cast,
                       )
-                    : Center(
-                        child: CircularProgressIndicator(),
-                      ),
+                    : SizedBox(),
               );
             }),
         SliverToBoxAdapter(

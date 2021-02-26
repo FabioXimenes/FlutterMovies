@@ -1,5 +1,6 @@
 import 'package:flutter_movie_app/app/shared/models/credits_model.dart';
 import 'package:flutter_movie_app/app/shared/models/movie_details_model.dart';
+import 'package:flutter_movie_app/app/shared/models/video_model.dart';
 import 'package:flutter_movie_app/app/shared/repositories/movie_repository.dart';
 import 'package:flutter_movie_app/app/shared/models/movie_response_model.dart';
 import 'package:mobx/mobx.dart';
@@ -35,10 +36,16 @@ abstract class _MovieDetailsControllerBase with Store {
   MovieResponseModel similarMovies;
 
   @observable
+  VideoModel trailer;
+
+  @observable
   bool hasDetails = false;
 
   @observable
   bool hasCredits = false;
+
+  @observable
+  bool hasTrailer = false;
 
   @observable
   bool hasSimilarMovies = false;
@@ -51,6 +58,20 @@ abstract class _MovieDetailsControllerBase with Store {
   getMovieCredits(int id) async {
     credits = await _repository.getMovieCredits(id);
     hasCredits = true;
+  }
+
+  getMovieTrailer(int id) async {
+    var videoResponse = await _repository.getMovieVideos(id);
+
+    var trailers = videoResponse.results
+        .where(
+            (element) => element.type == 'Trailer' && element.site == 'YouTube')
+        .toList();
+
+    if (trailers.length > 0) {
+      trailer = trailers.first;
+      hasTrailer = true;
+    }
   }
 
   getSimilarMovies(int id) async {

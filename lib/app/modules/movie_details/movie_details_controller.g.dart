@@ -73,6 +73,21 @@ mixin _$MovieDetailsController on _MovieDetailsControllerBase, Store {
     });
   }
 
+  final _$trailerAtom = Atom(name: '_MovieDetailsControllerBase.trailer');
+
+  @override
+  VideoModel get trailer {
+    _$trailerAtom.reportRead();
+    return super.trailer;
+  }
+
+  @override
+  set trailer(VideoModel value) {
+    _$trailerAtom.reportWrite(value, super.trailer, () {
+      super.trailer = value;
+    });
+  }
+
   final _$hasDetailsAtom = Atom(name: '_MovieDetailsControllerBase.hasDetails');
 
   @override
@@ -103,6 +118,21 @@ mixin _$MovieDetailsController on _MovieDetailsControllerBase, Store {
     });
   }
 
+  final _$hasTrailerAtom = Atom(name: '_MovieDetailsControllerBase.hasTrailer');
+
+  @override
+  bool get hasTrailer {
+    _$hasTrailerAtom.reportRead();
+    return super.hasTrailer;
+  }
+
+  @override
+  set hasTrailer(bool value) {
+    _$hasTrailerAtom.reportWrite(value, super.hasTrailer, () {
+      super.hasTrailer = value;
+    });
+  }
+
   final _$hasSimilarMoviesAtom =
       Atom(name: '_MovieDetailsControllerBase.hasSimilarMovies');
 
@@ -125,8 +155,10 @@ mixin _$MovieDetailsController on _MovieDetailsControllerBase, Store {
 details: ${details},
 credits: ${credits},
 similarMovies: ${similarMovies},
+trailer: ${trailer},
 hasDetails: ${hasDetails},
 hasCredits: ${hasCredits},
+hasTrailer: ${hasTrailer},
 hasSimilarMovies: ${hasSimilarMovies},
 duration: ${duration}
     ''';
